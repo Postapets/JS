@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Ex7.5</title>
+</head>
+
+<body onload="loadImages()">
+	<!--Определение 3х неактивных картинок, в атрибутах onmouse(out)(over) указывается вызов универсальной функции с соответствующим параметром. Добавлен атрибут onload с вызовом функции, подгружающей элементы -->
+<img width="70" height="30" id="first"	onmouseover="mouseOver('first')" onmouseout="mouseOut('first')" 
+/>
+
+<img width="70" height="30" id="second"	onmouseover="mouseOver('second')" onmouseout="mouseOut('second')" 
+/>
+
+<img width="70" height="30" id="third"	onmouseover="mouseOver('third')" onmouseout="mouseOut('third')" 
+/>
+
+
+
+<script>
+	//Создание объектов-изображений и загрузка файлов изображений 	
+	var first_off = new Image();    
+	var first_on = new Image();   
+	var second_off = new Image();   
+	second_off.src = "off2.gif";  
+	var second_on = new Image();   
+	second_on.src = "on2.gif";  
+	var third_off = new Image();   
+	third_off.src = "off3.gif";  
+	var third_on = new Image();   
+	third_on.src = "on3.gif";
+
+//Отдельная функция подгрузки объектов
+function loadImages(){
+	alert("Инициализация объектов");
+	first_off.src = "off1.gif";
+	first_on.src = "on1.gif"; 
+	document.getElementById('first').src = first_off.src;
+}
+
+
+	//document.getElementById('first').src = first_on.src;
+    document.getElementById('second').src = second_off.src;
+    document.getElementById('third').src = third_off.src;
+	//универсальная функция, вызывается когда мышь наезжает на картинку
+	function mouseOver(imgName)
+	{
+		document.images[imgName].src = eval(imgName+"_on.src");
+	}
+	//универсальная функция, вызывается когда мышь не наезжает на картинку
+	function mouseOut(imgName)
+	{ 
+		document.images[imgName].src = eval(imgName+"_off.src");
+	}
+
+
+</script>
+
+</body>
+
+</html>

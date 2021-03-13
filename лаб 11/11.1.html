@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ex11.1</title>
+  <style>
+    div{
+      /*Высота, ширина, рамка, поля, отступ сверху*/
+      height:300px;
+      width:300px;
+      border:2px solid black;
+      padding: 10px; 
+      margin-top:20px;
+    }
+    .bl1{
+      background-color:#b0b0b0;
+      /*width определяет ширину области контента*/
+      box-sizing: content-box; 
+    }
+    .bl2{
+      background-color:#baccab;
+      /*width задает общую ширину блока*/
+       box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="bl1"></div> 
+  <div class="bl2"></div>
+</body>
+</html>

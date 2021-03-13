@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+    <title>Ex4.3</title>
+    <style>
+        /*Стили формы: ширина, высота, отступ от краев формы, цвет фона и рамка */
+        form{
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            background-color: wheat;
+            border: 2px solid black;
+        }
+        /*Стили label(обертка для элементов), блочный тип отображения,
+        внешний отступ снизу */
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Установка конкретно некоторых элементов по правому краю, определение селекторов,
+           поиск селектора проводится по id элементов */
+        #operation select, #result input{
+            margin-left: 55px;
+        }
+        #first input{
+            margin-left: 11px;
+        }
+        #second input{
+            margin-left: 10px;
+        }
+        /* Прижать элементы типа button к прижать к правой стороне формы, к которой они относятся. */
+        button{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <!-- Элемент ввода с подписью обернутый в label, относительно прошлых заданий
+             добавилось два элемента типа radio, в которых хранятся data- данные, нужные для вычислений
+             По умолчанию(checked) отмечен элемент соответствующий строке -->
+        <label id="first">
+           <b> Первый опернд: </b><input id = "firstVal">
+           <input type="radio" name="firstRadio" data-type="Number" > Число
+           <input type="radio" name="firstRadio" data-type="String" checked> Строка
+        </label>
+        <!-- Элемент ввода с подписью обернутый в label, относительно прошлых заданий
+             добавилось два элемента типа radio, в которых хранятся data- данные, нужные для вычислений
+             По умолчанию(checked) отмечен элемент соответствующий строке -->
+        <label id="second">
+           <b> Второй операнд: </b> <input id = "secondVal">
+           <input type="radio" name="secondRadio" data-type="Number" > Число           
+            <input type="radio" name="secondRadio" data-type="String" checked> Строка
+        </label>
+
+        <!-- Элемент типа select, хранящий 5 операций, обернутый в label -->
+        <label id="operation"><b> Операция:</b>
+            <select>
+                <option> + </option>
+                <option> - </option>
+                <option> * </option>
+                <option> >= </option>
+                <option> == </option>
+            </select>
+        </label>
+
+        <!-- Тоже элемент ввода с атрибутом readonly, чтобы поле было недоступно для записи -->
+        <label id="result">
+           <b> Результат:</b> <input readonly>
+        </label>
+
+        <!-- Кнопки, нажатие на которые вызывает соответствующие функции благодаря onclick -->
+        <button onclick="execute()" type="button"> Вычислить </button></br> <label> </label> </br>
+        <button onclick="clearing()" type="button"> Очистить </button>
+    </form>
+</body>
+
+<script>
+
+    /* Определение констант и передача в них полей ввода. Метод querySelector
+       возвращает соответствующий сss селектору элемент*/
+    const first = document.querySelector('#first input');
+    const second = document.querySelector('#second input');
+    const result = document.querySelector('#result input');
+
+    function execute() 
+    {
+        /* Создаем переменные и присваиваем им значение формы типа radio, 
+           которая отмечена checked на момент нажатия кнопки "Выполнить"
+           Кроме того, производится вставка данных, хранящихся в data-type с помощью dataset */
+        const firstRadio = document.querySelector('input[name="firstRadio"]:checked').dataset.type; 
+        const secondRadio = document.querySelector('input[name="secondRadio"]:checked').dataset.type;
+
+        /* создаем переменную и присваиваем ей актуальное значение формы типа select */
+        const selector = document.querySelector('select');
+        /* В значение перменной result, которая соответствует полю "Результат" передаем результат вычислений
+           С помощью функции eval, которая вычисляет выражение, даже если она представлена строкой
+           Содержание eval построено таким образом, что при подстановке значений соответствующим элементам происходит
+           преобразования значений формы типа input  к соответствующему типу, указанному в форме типа radio
+           Далее производится выполнение операций.*/
+        result.value = eval(firstRadio + "('" + first.value + "')" + selector.value + secondRadio + "('" + second.value + "')");
+        /* Определение перменных для проверки и присвоение им соответствующего значения. Так же, как и в прошлом случае,
+           Содержание eval построено так, что при подстановке значений соответствующим элементам получается нужное для 
+           проверки выражение */
+        var firstNum = eval(firstRadio + "('" + first.value + "')");
+        var secondNum = eval(secondRadio + "('" + second.value + "')");
+        /* Проверка поулченных ранее выражений функцией checkout*/
+   if(checkout(firstNum, firstRadio)){
+            alert("Преобразование первого операнда <операнд> в число невозможно!");
+        }
+        if(checkout(secondNum, secondRadio)){
+            alert("Преобразование второго операнда <операнд> в число невозможно!");
+        }
+    }
+
+    function checkout(NumOrStr, radio) 
+    {       
+            /*Проверка поулченных параметров функции,
+              не являются ли они недопустимыми для преобразований */
+            if (radio == "Number") 
+            {
+                if (isNaN(NumOrStr)) 
+                {   /*Результату присвоить пустую строку и вернуть true, чтобы alert() вывел предупреждение*/
+                    result.value = '';
+                    return true;
+                }
+            }
+    }
+
+    function clearing()
+    {
+        first.value = null; result.value = null; second.value = null;
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ex12.4</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+
+    h2{
+      font-size:32px;
+    }
+    /*Заголовок*/
+    #header{
+      width:100%;
+      text-align:center;
+      background:#b0b0b0;
+      color:white;
+    }
+    /*Область контента*/
+    #content{
+      float: right;
+      width:75%;
+      height:560px;
+      background:#AAAFFF;
+      min-width:60px;
+    }
+    /*Область навигации*/
+    #navig{
+      float: left;
+      width:23%;
+      height:560px;
+      min-width:30px;
+    }
+    /*Нижний колонтитул*/
+    #footer{
+      width:100%;
+      float: left;
+      text-align:center;
+      background:#b0b0b0;
+      color:white;
+      font-family:"mv boli" Cursive;
+    }
+
+    span{
+      display:block;
+      background:#FFF000;
+      width:100%;
+    }
+
+    p{
+      margin-top:75px;
+    }
+    /*запрос, которым мы присваиваем условие ширины нескольким объектам*/
+    @media (min-width:480px){
+      span,p{
+        font-size:30px;
+      }
+    }
+
+    @media (max-width:720px){
+      span,p{
+        font-size:20px;
+      }
+
+      p{
+        margin-top:85px;
+      }
+
+      #content,#navig{
+        height:543px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>Заголовок</h1>
+  </div>
+
+  <div id="content">
+    <p>Я часто думаю, — продолжала Анна Павловна после минутного молчания</p>
+    <p>придвигаясь к князю и ласково улыбаясь ему</p>
+    <p>как будто выказывая этим, что политические и светские разговоры кончены</p>
+    <p>думаю, как иногда несправедливо распределяется счастие жизни.</p>
+  </div>
+
+  <div id="navig">
+    <span>Навигационные элементы</span>
+  </div>
+
+  <div id="footer">
+    <h2>Нижний колонтитул</h2>
+  </div>
+</body>
+</html>

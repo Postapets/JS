@@ -1,0 +1,18 @@
+<html> 
+	<head> 
+		<title>Ex5.4</title> 
+	</head> 
+	<!-- Добавим атрибут onload с вызовом функции, которая открывает новое окно -->
+	<body style="background-color: #aaabbb" onload="advertisment()"> 
+		<h1 style="color: #000000; text-align: center"> Это основное окно </h1>
+
+		<script> 
+			/*Выделим вызов окна в отдельную вспомогательную функцию*/
+			function advertisment() 
+			{ 
+				var adv = "width=400px, height=300, left=100, top = 100"; 
+				window.open('promotion.html', 'win1', adv); 
+			} 
+		</script> 
+	</body> 
+</html>

@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ex3 Lab3</title>
+
+    <script>
+    var ok = true;
+    </script>
+</head>
+
+
+<body>
+
+    <form name="myForm" action="response.html" onsubmit="alert('Обработка');return ok;">
+        <input type="submit" value="Обработать">
+
+    </form>
+    <a href="javascript: document.forms['myForm'].submit();"
+    onclick="alert('Щелчок по гиперссылке');return true">Отправить форму</a>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,22 @@
+form{
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    font-family: "Fira-Code";
+    background-color: wheat;
+    border: 2px solid black;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+button{
+    float: right;
+}
+
+#result input, #first input, #second input{
+    float: right;
+}
+

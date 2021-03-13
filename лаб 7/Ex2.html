@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>Ex7.2</title>
+</head>
+
+<body>
+<!--Первоначально изображение офф. При наезжании мыши вызывается соответственная функция --> 
+<img src="off1.gif" id="myImage" onmouseover="mouseOver()" onmouseout="mouseOut()"/>
+<script>
+	//Когда мышь на картинке
+    function mouseOver()
+    {
+        document.images["myImage"].src="on1.gif";
+    }
+    //Когда мышь вне картинки 
+    function mouseOut()
+    {
+        document.images["myImage"].src="off1.gif";
+    }
+
+</script>
+
+</body>
+
+</html>

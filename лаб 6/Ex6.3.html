@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Ex6.3</title>
+    <script type="text/javascript">
+    //Загружаем в переменную строку запроса
+    var q = document.location.href;
+    //убираем все справа, начиная с ? и выводим
+    q = q.substring(0, q.lastIndexOf("?"))
+    alert(q);
+    </script>
+</head>
+
+<body>
+    <!--добавим ссылку на себя на страницу с добавленным ?msg=hello -->
+    <a href="633.html?msg=hello">Это ссылка 1 </a> <br><br>
+    <script>
+        //присваиваем переменной текст, который будем добавлять
+        var txt = "msg=Hello";
+        //переменная, в которую загружается ссылка, знак вопроса и текст строки запроса, находящийся в txt
+        var query = document.location.href + "?" + txt;
+        //переменная, в которую загружается сформированная ссылка
+        var lnk = "<a href='" + query + "'>Это ссылка 2</a>";
+        //вставка новой ссылки
+        document.write(lnk);
+    </script>
+
+</body>
+
+</html>

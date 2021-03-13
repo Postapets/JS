@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ex10.6</title>
+  <style>
+    dl{
+      border:1px solid silver;
+      /*Внешний отступ = 0*/
+      margin:0; 
+      width:200px;
+      height:auto;
+    }
+    .term0 > dd{
+      display:none;
+    }
+    .term1 > dd{
+      display:none;
+    }
+    .term2 > dd{
+      display:none;
+    }
+
+  a{
+  width:100%;
+  height:100%;
+  display: block;
+  background: #3B8194;
+  color:black;
+  font-weight: bold;
+}
+
+a:hover{
+  color:white;
+  background: #b0b0b0;
+}
+  </style>
+</head>
+<body>
+  <dl class="term0">
+    <dt><a href="#"> Пункт 1 </a> </dt>
+    <dd>Подпункт 1</dd>
+    <dd>Подпункт 2</dd>
+    <dd>Подпункт 3</dd>
+  </dl>
+
+  <dl class="term1"> 
+    <dt><a href="#"> Пункт 2 </a> </dt>
+    <dd>Подпункт 1</dd>
+    <dd>Подпункт 2</dd>
+  </dl>
+
+  <dl class="term2" >
+    <dt><a href="#"> Пункт 3 </a> </dt>
+    <dd>Подпункт 1</dd>
+  </dl>
+
+  <script>
+    let click = 0;
+    window.onload = function(){
+      dls=document.getElementsByTagName("dt");
+      for (let i = 0; i < dls.length; i++) {
+        dls[i].onclick=function(){
+          click+=1;
+          //отображаем или наоборот скрываем j-тый элемент списка
+          if(click%2==1)
+          {
+            h=document.querySelectorAll(".term"+i+" > dd");
+            for (let j = 0; j < h.length; j++) {
+              h[j].style.display="block";
+            }
+          }
+          else{
+            h=document.querySelectorAll(".term"+i+" > dd");
+            for (let j = 0; j < h.length; j++) {
+              h[j].style.display="none";
+            }
+          }
+        };
+      }
+    };
+  </script>
+</body>
+</html>
