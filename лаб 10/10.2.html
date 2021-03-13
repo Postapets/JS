@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ex10.2</title>
+  <!--Задаем стили-->
+  <style>
+  .ul{list-style:square;}
+  .li{list-style:circle;}
+  </style>
+</head>
+<body>
+  <!--  Описываем список, задавая различные параметры для маркеров -->
+  <h1>Список</h1>
+  <ul>
+    <li>Элемент   1</li>
+    <ul class="ul">
+      <li >Элемент   1.1</li>
+      <li>Элемент   1.2</li>
+    </ul>
+    <li>Элемент   2</li>
+    <ul class="ul">
+      <li>Элемент   2.1</li>
+      <li>Элемент   2.2</li>
+    </ul>
+    <li>Элемент   3</li>
+    <ul class="ul">
+      <li  class="li" >Элемент   3.1</li>
+      <li>Элемент   3.2</li>
+    </ul>
+  </ul>
+  <!--  li имеет приоритет, также можно задать особый маркер для отдельного элемента списка-->
+</body>
+</html>

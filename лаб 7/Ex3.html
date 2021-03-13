@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Ex7.3</title>
+</head>
+
+<body>
+	<!--Определение 3х неактивных картинок, в атрибутах onmouse(out)(over) указывается вызов универсальной функции с соответствующим параметром -->
+<img src="off1.gif" width="70" height="30" id="first"	onmouseover="mouseOver('first')" onmouseout="mouseOut('first')" 
+/>
+
+<img src="off2.gif" width="70" height="30" id="second"	onmouseover="mouseOver('second')" onmouseout="mouseOut('second')" 
+/>
+
+<img src="off3.gif" width="70" height="30" id="third"	onmouseover="mouseOver('third')" onmouseout="mouseOut('third')" 
+/>
+
+
+<script>
+	//Создание переменных, содержащих имена файлов изображений 
+	var first_off = "off1.gif";
+	var first_on = "on1.gif";
+	var second_off = "off2.gif";
+	var second_on = "on2.gif";
+	var third_off = "off3.gif";
+	var third_on = "on3.gif";
+	//универсальная функция, вызывается когда мышь наезжает на картинку 
+  function mouseOver(imgName)
+  {
+    document.images[imgName].src = eval(imgName+"_on");
+  }
+
+  //универсальная функция, вызывается когда мышь не наезжает на картинку 
+ function mouseOut(imgName)
+ { 
+   document.images[imgName].src = eval(imgName+"_off"); 
+ }
+
+
+</script>
+
+</body>
+
+</html>

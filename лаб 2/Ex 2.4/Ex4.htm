@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = 'ru'>
+<head>
+  <meta charset='utf8'>
+  <title> Ex4.lab2 </title>
+    <style>
+   table {
+    background: yellow;
+   }
+  </style>
+</head>
+
+
+<body bgcolor= "#808080">
+ <script>
+    var i = 0, arr1 = [0, 30, 45, 60, 90, 120, 135, 150, 180];
+    function first(){
+      document.write(arr1[i]);
+      i+=1;
+    }
+    </script>
+
+
+
+    <script>
+     var arr2 = [0, 30, 45, 60, 90, 120, 135, 150, 180];
+    function getSin(){
+      
+      for(var n = 0; n < 9;n++){
+        arr2[n] = arr2[n] * Math.PI / 180;
+        arr2[n] = (Math.sin(arr2[n])).toFixed(6);
+      }
+      //document.write(arr2+"</br>");
+    }
+    getSin();
+    </script>
+
+
+
+     <script>
+    var j = 0;
+    function second(){
+      document.write(arr2[j]);
+      j+=1;
+    }
+    </script>
+
+<table border bgcolor="green">
+
+  <tr><th><bold>Угол</br> в град.</th><th>Значение</br>синуса</bold></th></tr> 
+    
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+  <tr><td align="center"><script>first();</script></td><td><script>second();</script></td></tr>
+
+</table>
+
+</body>

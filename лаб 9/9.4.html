@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ex9.4</title>
+  <script>
+    //анонимная функци для обработки события (завершения загрузки документа)
+window.onload=function(){
+                //получение объектов (ссылок)
+                lnks=document.getElementsByTagName("a");
+                //перебор всех элементов массива, назначение обработчика click
+                for (let i = 0; i < lnks.length; i++) {
+                  lnks[i].onclick=function(){
+                    //формирование соответствующего имени документа
+                    let a="doc"+(i+1)+".html";
+                    //вызов функции из 3го задания, открывающей документ.
+                    popupWin(a);
+                  };
+                }
+               };
+  </script>
+</head>
+<body>
+  <!--создание объектов ссылок-->
+  <a href="#">Открыть документ doc1.html</a>
+  <br>
+  <a href="#">Открыть документ doc2.html</a>
+  <br>
+  <a href="#">Открыть документ doc3.html</a>
+  <script>
+    //функция из прошлого задания
+   function popupWin(url){
+   window.open(url,"w1", "top=50,left=250,width=400,height=300");
+   focus();
+  }
+  </script>
+</body>
+</html>

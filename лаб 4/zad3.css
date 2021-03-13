@@ -1,0 +1,21 @@
+form{
+    width: 500px;
+    height: 170px;
+    padding: 10px;
+    font-family: "Fira-Code";
+    background-color: wheat;
+    border: 2px solid black;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+#operation select, #result input{
+    margin-left: 55px;
+}
+
+button{
+    float: right;
+}

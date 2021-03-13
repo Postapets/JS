@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ex8.2</title>
+
+<!--Задаем параметры стиля для блока с таймером-->
+<style type="text/css">
+   .block { 
+    width: 200px; 
+    background: #fc2; 
+    padding: 5px; 
+    border: solid 2px black; 
+    left: -70px; 
+   }
+</style> 
+</head>
+
+<h3>Дополнительная страница:</h3>
+<!--При загрузке вызвать функцию startTimer()-->
+<body onload="startTimer()" >
+
+<script>
+    var timer; 
+function startTimer(){ 
+    var count = 0; 
+    //Метод setInterval(), возвращает дескриптор, который мы присваиваем переменной для хранения и последующего использования в clearInterval()
+    timer = self.setInterval(() => 
+    //блок кода setInterval()
+{ 
+    count += 1;
+    //если насчитано более 60 повторений, то в res формируется строка вместе с " мин "
+    if (count > 60) { 
+        var res = ""; 
+        var min = Math.floor(count/60); 
+        res += min + " мин "; 
+        var sec = count % 60; 
+        res += sec + ' cек'; 
+        document.getElementById("my_timer").textContent = res;} 
+        //Иначе выводится просто насчитанное кол-во повторений count и " сек"
+    else{
+        document.getElementById("my_timer").textContent = count + ' сек'; 
+        } 
+        //Задаем интервал равный 1 секунде 
+    }, 1000);
+} 
+//Функция останавливает таймер по дескриптору timer 
+function stopTimer() { 
+    clearInterval(timer); 
+    document.getElementById('stop'); 
+} 
+  </script>
+
+<div class="block">Прошло: </div><div class="block" id="my_timer">0 сек</div>
+<!--Текст со ссылкой, при нажатии на который вызывается stopTimer()-->
+<p><a href="#" id="stop" onclick="stopTimer()">Отключить таймер! </a></p>
+
+</body>
+</html>

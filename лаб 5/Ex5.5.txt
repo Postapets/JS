@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Ex5.5</title>
+    
+    <script>
+        /*Функция, создающая страницу на лету */
+      function promotion() 
+      {
+        /*Переменная со свойствами страницы */
+        var features = "width=400px, height=300px, left=100, top=100";
+        /*Переменная с ссылкой на объект(новое окно) */
+        var nw = open("", "win1", features);
+        /*Переменная, в которую загружается код страницы */
+        text= "<html><head>"
+        text+="<title>Реклама</title>"
+        text+= '</head><body style="background-color: #bbbaaa"><h1 style="color: #000bbb; text-align: center"><b>Поступайте в ЮФУ</b></h1> </body> </html>'
+        /*текст из переменной text записывается в новое окно nw*/
+        nw.document.write(text);
+        nw.document.close(text);
+      }
+    </script>
+
+</head>
+<body style="background-color: #aaabbb">
+    <h1 style="color: #000000; text-align: center"> Это основное окно </h1>
+     <script>
+        /*Вызов функции */
+        promotion()
+    </script>
+</body>
+</html>

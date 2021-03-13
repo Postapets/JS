@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Ex7.3.1</title>
+</head>
+
+<body>
+  <!--Определение 3х неактивных картинок, в атрибутах onmouse(out)(over) указывается вызов универсальной функции c параметром event-->
+<img src="off1.gif" width="70" height="30" id="first"	onmouseover="mouseOver(event)" onmouseout="mouseOut(event)" />
+
+<img src="off2.gif" width="70" height="30" id="second"	onmouseover="mouseOver(event)" onmouseout="mouseOut(event)" />
+
+<img src="off3.gif" width="70" height="30" id="third"	onmouseover="mouseOver(event)" onmouseout="mouseOut(event)" />
+
+
+<script>
+  //Создание переменных, содержащих имена файлов изображений 
+	var first_off = "off1.gif";
+	var first_on = "on1.gif";
+	var second_off = "off2.gif";
+	var second_on = "on2.gif";
+	var third_off = "off3.gif";
+	var third_on = "on3.gif";
+  //универсальная функция, вызывается когда мышь наезжает на картинку. Пренадлежность объекта определяется по id
+  var mouseOver = (event) => 
+{
+    var id = event.target.id;
+    document.getElementById(id).src= eval(id+"_on");
+}
+  //универсальная функция, вызывается когда мышь не наезжает на картинку
+  var mouseOut = (event) => 
+{
+    var id = event.target.id; 
+   document.getElementById(id).src = eval(id+"_off"); 
+}
+
+
+</script>
+
+</body>
+
+</html>

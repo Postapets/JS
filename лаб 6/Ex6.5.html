@@ -1,0 +1,25 @@
+<html>
+
+<head>
+	<title>Ex6.5</title>
+</head>
+
+<body>
+
+<script>
+
+	//Меняем значение
+    var txt = "Кириллица";
+    //переменная, в которую загружается сформированная ссылка, добавляем escape()
+    var lnk = `<a href='javascript: window.location.search = "${escape(txt)}"'>Обновить страницу (?Кириллица)</a>`;
+    document.write(lnk);
+
+    var q = window.location.search.substring(1);
+    //вывод с unescape()
+    alert(unescape(q));
+</script>
+</body>
+</html>
+
+
+
